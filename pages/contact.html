@@ -50,6 +50,28 @@
         margin: 2rem 0;
         text-decoration: underline;
       }
+      @media (max-width: 600px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .nav_links {
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+        .contact_info {
+          font-size: 1.2rem;
+          padding: 0 1rem;
+        }
+        .contact_info a {
+          word-break: break-word;
+        }
+        #contactmetitle {
+          font-size: 1.5rem;
+          margin: 1.5rem 0;
+        }
+      }
     </style>
   </head>
   <body>
