@@ -91,16 +91,35 @@
       a.title_link:hover h3 {
         text-decoration: underline;
       }
+      #menu_toggle {
+        display: none;
+      }
+      .hamburger {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+
       @media (max-width: 600px) {
         header {
           flex-direction: column;
           align-items: flex-start;
+          position: relative;
+        }
+        h2#recent_title {
+          font-size: 2rem;
+        }
+        h3 {
+          font-size: 1.5rem;
         }
         .nav_links {
+          display: none;
           flex-direction: column;
           width: 100%;
           gap: 0.5rem;
-          margin-top: 1rem;
+          background-color: rgba(206, 206, 206, 0.95);
+          padding: 1rem 2rem;
+          border-top: 1px solid black;
         }
         .nav_links a {
           font-size: 1.2rem;
@@ -108,12 +127,6 @@
         }
         .container {
           padding: 0 1rem;
-        }
-        h2#recent_title {
-          font-size: 2rem;
-        }
-        h3 {
-          font-size: 1.5rem;
         }
         .post_thumbnail {
           width: 100%;
@@ -127,6 +140,19 @@
           font-size: 1.2rem;
           padding: 0.4rem 0.75rem;
         }
+        .hamburger {
+          display: block;
+          position: absolute;
+          top: 1rem;
+          right: 1.5rem;
+        }
+        .site_title {
+          font-size: 1.8rem;
+          margin-bottom: 0.5rem;
+        }
+        #menu_toggle:checked + .hamburger + .nav_links {
+          display: flex;
+        }
       }
     </style>
   </head>
@@ -134,6 +160,8 @@
     <header>
       <!-- top header on the website -->
       <a href="/index.html" class="site_title">David's Blog</a>
+      <input type="checkbox" id="menu_toggle" />
+      <label for="menu_toggle" class="hamburger">&#9776;</label>
       <nav class="nav_links">
         <a href="/pages/allposts.html">All Posts</a>
         <a href="/pages/about.html">About</a>
