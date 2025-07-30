@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>David's Blog</title>
+    <link rel="stylesheet" href="CSS/main.css" />
     <style>
       header {
         display: flex;
@@ -105,6 +106,7 @@
           flex-direction: column;
           align-items: flex-start;
           position: relative;
+          padding: 1rem;
         }
         h2#recent_title {
           font-size: 2rem;
@@ -126,7 +128,9 @@
           padding: 0 1rem;
         }
         .container {
+          max-width: 800px;
           padding: 0 1rem;
+          margin: 0 auto;
         }
         .post_thumbnail {
           width: 100%;
@@ -150,7 +154,7 @@
           font-size: 1.8rem;
           margin-bottom: 0.5rem;
         }
-        #menu_toggle:checked + .hamburger + .nav_links {
+        #menu_toggle:checked ~ .nav_links {
           display: flex;
         }
       }
@@ -160,13 +164,15 @@
     <header>
       <!-- top header on the website -->
       <a href="/index.html" class="site_title">David's Blog</a>
-      <input type="checkbox" id="menu_toggle" />
-      <label for="menu_toggle" class="hamburger">&#9776;</label>
-      <nav class="nav_links">
-        <a href="/pages/allposts.html">All Posts</a>
-        <a href="/pages/about.html">About</a>
-        <a href="/pages/contact.html">Contact</a>
-      </nav>
+      <div class="menu_container">
+        <input type="checkbox" id="menu_toggle" />
+        <label for="menu_toggle" class="hamburger">&#9776;</label>
+        <nav class="nav_links">
+          <a href="/pages/allposts.html">All Posts</a>
+          <a href="/pages/about.html">About</a>
+          <a href="/pages/contact.html">Contact</a>
+        </nav>
+      </div>
     </header>
     <main>
       <!-- page title -->

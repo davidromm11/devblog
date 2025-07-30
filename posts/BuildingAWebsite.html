@@ -18,12 +18,24 @@
         padding: 1rem 2rem;
         background-color: rgba(206, 206, 206, 0.856);
         border-bottom: 1px solid black;
+        flex-wrap: wrap;
       }
       .site_title {
         font-size: 2rem;
         font-weight: bold;
         color: rgb(0, 0, 0);
         text-decoration: none;
+      }
+      .menu_container {
+        position: relative;
+      }
+      #menu_toggle {
+        display: none;
+      }
+      .hamburger {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
       }
       .nav_links {
         display: flex;
@@ -62,7 +74,7 @@
         font-size: 1.5rem;
       }
       .post_content img.post_image {
-        max-width: 400px;
+        max-width: 60%;
         height: auto; /* keep aspect ratio */
         display: block;
         margin: 1.5rem auto;
@@ -83,21 +95,11 @@
       .view_all:hover {
         background-color: rgb(140, 200, 252);
       }
-      #menu_toggle {
-        display: none;
-      }
-
-      .hamburger {
-        display: none;
-        font-size: 2rem;
-        cursor: pointer;
-      }
 
       @media (max-width: 600px) {
         header {
           flex-direction: column;
           align-items: flex-start;
-          position: relative;
         }
         .hamburger {
           display: block;
@@ -105,11 +107,6 @@
           top: 1rem;
           right: 1.5rem;
         }
-
-        #menu_toggle:checked + .hamburger + .nav_links {
-          display: flex;
-        }
-
         .nav_links {
           display: none;
           flex-direction: column;
@@ -119,7 +116,9 @@
           padding: 1rem 2rem;
           border-top: 1px solid black;
         }
-
+        #menu_toggle:checked ~ .nav_links {
+          display: flex;
+        }
         .nav_links a {
           font-size: 1.2rem;
           padding: 0 1rem;
@@ -132,13 +131,15 @@
     <header>
       <!-- top header on the website -->
       <a href="/index.html" class="site_title">David's Blog</a>
-      <input type="checkbox" id="menu_toggle" />
-      <label for="menu_toggle" class="hamburger">&#9776;</label>
-      <nav class="nav_links">
-        <a href="/pages/allposts.html">All Posts</a>
-        <a href="/pages/about.html">About</a>
-        <a href="/pages/contact.html">Contact</a>
-      </nav>
+      <div class="menu_container">
+        <input type="checkbox" id="menu_toggle" />
+        <label for="menu_toggle" class="hamburger">&#9776;</label>
+        <nav class="nav_links">
+          <a href="/pages/allposts.html">All Posts</a>
+          <a href="/pages/about.html">About</a>
+          <a href="/pages/contact.html">Contact</a>
+        </nav>
+      </div>
     </header>
 
     <main>

@@ -11,6 +11,11 @@
         margin: 0;
         padding: 0;
       }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
       header {
         display: flex;
         justify-content: space-between;
@@ -18,6 +23,8 @@
         padding: 1rem 2rem;
         background-color: rgba(206, 206, 206, 0.856);
         border-bottom: 1px solid black;
+        flex-wrap: wrap;
+        position: relative;
       }
       .site_title {
         font-size: 2rem;
@@ -28,6 +35,7 @@
       .nav_links {
         display: flex;
         gap: 1rem;
+        flex-wrap: wrap;
       }
       .nav_links a {
         font-size: 1.5rem;
@@ -40,7 +48,6 @@
       }
       #allpoststitle {
         text-align: center;
-        display: block;
         font-size: 2rem;
         font-weight: bold;
         margin: 2rem 0;
@@ -50,9 +57,7 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 3rem;
-        padding: 1rem 2rem 3rem;
-        max-width: 1200px;
-        margin: 0 auto;
+        padding-bottom: 3rem;
       }
       .post_card {
         background-color: rgb(241, 241, 241);
@@ -81,8 +86,8 @@
         transition: transform 0.2s, box-shadow 0.2s;
       }
       .post_grid a.post_card:hover {
-        transform: translate(-5px);
-        box-shadow: 0 4px 16px rgb(0, 0, 0);
+        transform: translate(-3px);
+        box-shadow: 0 4px 16px rgb(0, 0, 0, 0.3);
       }
       #menu_toggle {
         display: none;
@@ -103,13 +108,14 @@
         header {
           flex-direction: column;
           align-items: flex-start;
-        }
-        .post_card p {
-          font-size: 0.9rem;
+          padding: 1.5rem;
         }
         .post_grid {
           grid-template-columns: 1fr;
           padding: 1rem;
+        }
+        .post_card p {
+          font-size: 0.9rem;
         }
         .nav_links {
           display: none;
@@ -124,17 +130,17 @@
           font-size: 1.2rem;
           padding: 0.25rem 0;
         }
-        #allpoststitle {
-          font-size: 1.5rem;
-        }
         .hamburger {
           display: block;
           position: absolute;
           top: 1rem;
           right: 1.5rem;
         }
-        #menu_toggle:checked + .hamburger + .nav_links {
+        #menu_toggle:checked ~ .nav_links {
           display: flex;
+        }
+        #allpoststitle {
+          font-size: 1.5rem;
         }
       }
     </style>
@@ -143,29 +149,35 @@
     <header>
       <!-- top header on the website -->
       <a href="/index.html" class="site_title">David's Blog</a>
-      <input type="checkbox" id="menu_toggle" />
-      <label for="menu_toggle" class="hamburger">&#9776;</label>
-      <nav class="nav_links">
-        <a href="/pages/allposts.html">All Posts</a>
-        <a href="/pages/about.html">About</a>
-        <a href="/pages/contact.html">Contact</a>
-      </nav>
+      <div class="menu_container">
+        <input type="checkbox" id="menu_toggle" />
+        <label for="menu_toggle" class="hamburger">&#9776;</label>
+        <nav class="nav_links">
+          <a href="/pages/allposts.html">All Posts</a>
+          <a href="/pages/about.html">About</a>
+          <a href="/pages/contact.html">Contact</a>
+        </nav>
+      </div>
     </header>
-    <h2 id="allpoststitle">All Posts</h2>
-    <div class="post_grid">
-      <a href="/posts/BuildingAWebsite.html" class="post_card">
-        <div>
-          <h3>Building My First Website from Scratch</h3>
-          <img
-            src="/images/indexcode.jpg"
-            alt="Photo of the code for my website"
-          />
-          <p>
-            How I built my first website from scratch learning HTML and CSS
-            along the way.
-          </p>
-        </div>
-      </a>
-    </div>
+
+    <main class="container">
+      <h2 id="allpoststitle">All Posts</h2>
+      <div class="post_grid">
+        <a href="/posts/BuildingAWebsite.html" class="post_card">
+          <div>
+            <h3>Building My First Website from Scratch</h3>
+            <img
+              src="/images/indexcode.jpg"
+              alt="Photo of the code for my website"
+            />
+            <p>
+              How I built my first website from scratch learning HTML and CSS
+              along the way.
+            </p>
+          </div>
+        </a>
+        <!-- more postcards here -->
+      </div>
+    </main>
   </body>
 </html>
